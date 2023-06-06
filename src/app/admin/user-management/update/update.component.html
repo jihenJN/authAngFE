@@ -1,0 +1,67 @@
+<div class="d-flex justify-content-center">
+    <div class="col-8">
+      <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+        <h2 id="myUserLabel">Create or edit a user</h2>
+  
+  
+        <div class="mb-3" [hidden]="!editForm.value.id">
+          <label>ID</label>
+          <input type="text" class="form-control" name="id" formControlName="id" readonly />
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">Login</label>
+          <input type="text" class="form-control" name="login" formControlName="login" />
+  
+
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">First name</label>
+          <input type="text" class="form-control" name="firstName" formControlName="firstName" />
+
+        </div>
+  
+        <div class="mb-3">
+          <label>Last name</label>
+          <input type="text" class="form-control" name="lastName" formControlName="lastName" />
+  
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" formControlName="email" />
+  
+
+        </div>
+  
+        <div class="form-check">
+          <label class="form-check-label" for="activated">
+            <input
+              class="form-check-input"
+              [attr.disabled]="editForm.value.id === undefined ? 'disabled' : null"
+              type="checkbox"
+              id="activated"
+              name="activated"
+              formControlName="activated"
+            />
+            <span>Activated</span>
+          </label>
+        </div>
+  
+        <div class="mb-3">
+          <label>Profiles</label>
+          <select class="form-control" multiple name="authority" formControlName="authorities">
+            <option *ngFor="let authority of authorities" [value]="authority">{{ authority }}</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+  
+        <button type="submit" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </form>
+    </div>
+  </div>

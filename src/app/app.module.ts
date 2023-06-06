@@ -5,18 +5,46 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginModule } from './login/login.module';
+import { httpInterceptorProviders } from './core/interceptor';
+import { AccountModule } from './account/account.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ApplicationConfigService } from './services/application-config.service';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HomeModule } from './home/home/home.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AdminModule } from './admin/admin.module';
+import { UserManagementModule } from './admin/user-management/user-management.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    LoginModule
+    LoginModule,
+    AccountModule,
+    HttpClientModule,
+    HomeModule,
+    NgxPaginationModule,
+    FontAwesomeModule,
+    AdminModule,
+    UserManagementModule,
+
+    NgxWebstorageModule.forRoot({ separator: '-', caseSensitive: true }),
+    
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders,
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(applicationConfigService: ApplicationConfigService) {
+    //applicationConfigService.setEndpointPrefix(SERVER_API_URL);
+    // registerLocaleData(locale);
+    // dpConfig.minDate = { year: dayjs().subtract(100, 'year').year(), month: 1, day: 1 };
+ }
+}

@@ -10,7 +10,8 @@ import { AuthServerProvider } from './auth-jwt.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
-  constructor(private accountService: AccountService, private authServerProvider: AuthServerProvider) {}
+  constructor(private accountService: AccountService, 
+    private authServerProvider: AuthServerProvider) {}
 
   login(credentials: Login): Observable<Account | null> {
     return this.authServerProvider.login(credentials).pipe(mergeMap(() => this.accountService.identity(true)));
