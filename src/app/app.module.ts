@@ -12,9 +12,9 @@ import { ApplicationConfigService } from './services/application-config.service'
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HomeModule } from './home/home/home.module';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { AdminModule } from './admin/admin.module';
-import { UserManagementModule } from './admin/user-management/user-management.module';
+
 
 @NgModule({
   declarations: [
@@ -29,9 +29,9 @@ import { UserManagementModule } from './admin/user-management/user-management.mo
     HttpClientModule,
     HomeModule,
     NgxPaginationModule,
-    FontAwesomeModule,
+
     AdminModule,
-    UserManagementModule,
+ 
 
     NgxWebstorageModule.forRoot({ separator: '-', caseSensitive: true }),
     
@@ -43,7 +43,7 @@ import { UserManagementModule } from './admin/user-management/user-management.mo
 })
 export class AppModule {
   constructor(applicationConfigService: ApplicationConfigService) {
-    //applicationConfigService.setEndpointPrefix(SERVER_API_URL);
+  //  applicationConfigService.setEndpointPrefix(SERVER_API_URL);
     // registerLocaleData(locale);
     // dpConfig.minDate = { year: dayjs().subtract(100, 'year').year(), month: 1, day: 1 };
  }

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
-import { UserManagementModule } from './user-management/user-management.module';
-import { DeleteComponent } from './user-management/delete/delete.component';
+
+
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { DeleteComponent } from './user-management/delete/delete.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    UserManagementModule,
+ 
     
     
   ]
